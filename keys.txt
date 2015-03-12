@@ -1,0 +1,17 @@
+Company:
+JumpstartMe
+----------------------------------
+Application Name:
+CareerNetworkPlatform
+----------------------------------
+API Key:
+77m5su8vf4nl8d
+----------------------------------
+Secret Key:
+svUxgePHL2TtjhZm
+----------------------------------
+OAuth User Token:
+0db2e75d-4b05-4f45-8b7f-7b602bedf74d
+----------------------------------
+OAuth User Secret:
+29b7a627-9f91-4790-8ffd-03d0bd45caad
