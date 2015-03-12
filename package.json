@@ -1,0 +1,15 @@
+{
+  "name": "Go-interview-me",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": { 
+    "express": "*",
+    "ejs": "*",
+    "passport": "*",
+    "passport-linkedin": "*",
+    "oauth": "*",
+    "mongoose": "*"
+  }
+}
