@@ -6,9 +6,11 @@ var express = require('express'),
   path = require('path'),
   OAuth = require('oauth'),
   passport = require('passport'),
-  mongoose = require('mongoose');
+  mongoose = require('mongoose'),
+  nodemailer = require('nodemailer');
 
 var app = express();
+var transport = nodemailer.createTransport();
 
 /*******************************************************************
  *                     SET UP ALL ENVIRONMENTS
@@ -59,6 +61,25 @@ app.get('/', IndexController.index);
 //app.get('/assets/', function (req, res) {
 //  res.redirect('/views/assets/');
 //});
+
+app.get('/send', function (req, res) {
+  var mailOptions = {
+    from: req.query.from,
+    to: 'chulk90@terpmail.umd.edu',
+    subject: 'Go Interview Me Applicant',
+    content: req.query.name + req.query.content
+  };
+  console.log(mailOptions);
+  transport.sendMail(mailOptions, function(error, response) {
+    if (error) {
+      console.log(error);
+      res.end("error");
+    } else {
+      console.log("Message sent: " + response.message);
+      res.end("sent");
+    };
+  });
+});
 
 /*******************************************************************
  *                        START THE SERVER

@@ -1,11 +1,12 @@
 {
   "name": "Go-interview-me",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "scripts": {
     "start": "node app.js"
   },
   "dependencies": { 
     "express": "*",
+    "nodemailer": "*",
     "ejs": "*",
     "passport": "*",
     "passport-linkedin": "*",
