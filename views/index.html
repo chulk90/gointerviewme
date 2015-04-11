@@ -337,7 +337,7 @@
               <label for="exampleInputText1">Message</label>
               <textarea id="content" class="form-control" rows="3"></textarea>
             </div>
-            <button id="send_app" type="submit" class="btn btn-default">Submit</button>
+            <button id="send_app" type="button" class="btn btn-default">Submit</button>
             <span id="message"></span>
           </form>
 
@@ -378,6 +378,7 @@
       jQuery(".fancybox").fancybox();
     });
   </script>
+<!--
   <script type='text/javascript'>
     $(document).ready(function() {
       var from, name, content;
@@ -401,7 +402,29 @@
       });
     });
   </script>
+-->
 
+  <script type='text/javascript'>
+    $(document).ready(function() {
+      var from, name, text;
+      $("#send_app").click(function() {
+        from = $("#from").val();
+        name = $("#name").val();
+        text = $("#content").val();
+        $("message").text("Submitting the application ...");
+        $.get("http://localhost:3000/send", {
+          from: from,
+          name: name,
+          text: text
+        }, function(data) {
+          if (data == "sent") {
+            console.log("sent received");
+            $("#message").empty().html("The application has been submitted. Please check the inbox!");
+          }
+        });
+      });
+    });
+  </script>
 </body>
 
 </html>

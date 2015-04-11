@@ -67,7 +67,7 @@ app.get('/send', function (req, res) {
     from: req.query.from,
     to: 'chulk90@terpmail.umd.edu',
     subject: 'Go Interview Me Applicant',
-    text: req.query.name + req.query.content
+    text: req.query.name + req.query.text
   };
   console.log(mailOptions);
   transport.sendMail(mailOptions, function (error, info) {
@@ -75,7 +75,7 @@ app.get('/send', function (req, res) {
       console.log(error);
       res.end("error");
     } else {
-      console.log("Message sent: " + info.message);
+      console.log("Message sent: " + JSON.stringify(info, null, 4));
       res.end("sent");
 //      console.log(res);
     };
