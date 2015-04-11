@@ -6,7 +6,7 @@
   },
   "dependencies": { 
     "express": "*",
-    "nodemailer": "*",
+    "nodemailer": "~0.7.1",
     "ejs": "*",
     "passport": "*",
     "passport-linkedin": "*",

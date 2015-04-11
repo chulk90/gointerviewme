@@ -67,16 +67,17 @@ app.get('/send', function (req, res) {
     from: req.query.from,
     to: 'chulk90@terpmail.umd.edu',
     subject: 'Go Interview Me Applicant',
-    content: req.query.name + req.query.content
+    text: req.query.name + req.query.content
   };
   console.log(mailOptions);
-  transport.sendMail(mailOptions, function(error, response) {
+  transport.sendMail(mailOptions, function (error, info) {
     if (error) {
       console.log(error);
       res.end("error");
     } else {
-      console.log("Message sent: " + response.message);
+      console.log("Message sent: " + info.message);
       res.end("sent");
+//      console.log(res);
     };
   });
 });
